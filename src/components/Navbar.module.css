@@ -20,7 +20,7 @@ h4 {
     color: #fff;
 }
 
-button {
+.departamentsButton {
     background-color: transparent;
     border: none;
     cursor: pointer; 
@@ -53,6 +53,7 @@ button {
 }
 
 .input {
+    border: none;
     width: 500px;
     height: 15px;
     padding: 10px;
@@ -70,7 +71,7 @@ button {
     border: solid;
     transition: color 1s;
     color: #ff9900;
-    border-radius: 10px;
+    border-radius: 15px;
     border-top-right-radius: 0%;
     border-end-end-radius: 0%;
 }

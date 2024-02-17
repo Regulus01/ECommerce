@@ -8,3 +8,11 @@ body {
 li {
   list-style-type: none;
 }
+
+.main-content {
+  min-height: 100vh;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  
+}

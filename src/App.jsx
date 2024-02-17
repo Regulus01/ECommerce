@@ -7,16 +7,16 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 function App() {
-
-
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/about" element={<About />}></Route>
-        </Routes>
+        <div className='main-content'>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
+          </Routes>
+        </div>
         <Footer />
       </BrowserRouter>
     </div>
