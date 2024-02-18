@@ -1,3 +1,9 @@
 .divStyles {
     padding: 20px;
+    height: 340px;
+}
+
+.home h1{
+    display: grid;
+    place-items: center;
 }

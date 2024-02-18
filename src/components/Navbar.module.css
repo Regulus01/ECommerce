@@ -16,27 +16,25 @@
     background-color: #232f3e;
 }
 
-h4 {
-    color: #fff;
-}
-
 .departamentsButton {
     background-color: transparent;
     border: none;
     cursor: pointer; 
 }
 
-.NavLink {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 1rem;
-
+.departamentsButton h4 {
+    color: #ffffff;
 }
 
-.NavLink:hover {
-    transition: border-bottom 2.5s;
-    border-bottom: 1px solid #ff9900;
+.logo
+{
+    max-width: 200px;
 }
+
+.carrinho {
+    max-width: 30px;
+}
+
 
 .links_list {
     display: flex;
@@ -63,6 +61,17 @@ h4 {
     outline: none;
 }
 
+.NavLink {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.NavLink:hover {
+    transition: border-bottom 2.5s;
+    border-bottom: 1px solid #ff9900;
+}
+
 .searchContainer {
     position: relative;
 }
@@ -71,17 +80,22 @@ h4 {
     border: solid;
     transition: color 1s;
     color: #ff9900;
-    border-radius: 15px;
+    border-radius: 12px;
     border-top-right-radius: 0%;
     border-end-end-radius: 0%;
 }
 
 .search {
     position: absolute;
-    top: 20%;
-    right: -24px;
+    background-color: #f3a847;
+    top: 1%;
+    bottom: 0%;
+    right: -36px;
     color: #ffffff;
     cursor: pointer; 
+    border: solid 10px orange;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
 }
 
 .yellowSquare {
@@ -91,5 +105,4 @@ h4 {
     width: 35px;
     height: 36px;
     background-color: #f3a847;
-
 }

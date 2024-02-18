@@ -5,13 +5,16 @@
     align-items: center;
     justify-content: center;
     background-color: #131921;
-
 }
 
 .NavLink {
     color: #fff;
 }
 
-h3, p {
+.footer h3 {
+    color: white;
+}
+
+.footer p {
     color: white;
 }

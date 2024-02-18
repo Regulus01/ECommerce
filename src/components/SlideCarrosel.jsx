@@ -20,7 +20,6 @@ const Carrosel = ({ slides }) => {
                     <SwiperSlide>
                         <img src={slide} alt="" />
                     </SwiperSlide>
-
                 ))}
             </Swiper>
         </>
