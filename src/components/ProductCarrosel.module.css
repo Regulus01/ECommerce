@@ -5,8 +5,11 @@
 
 .swiperSlide {
   padding-top: 10%;
-  padding-left: 10%;
+  padding-left: 5%;
   padding-right: 10%;
   height: 350px;
 }
 
+.swiperBase {
+
+}

@@ -16,8 +16,8 @@ const Carrosel = ({ slides }) => {
             navigation
             pagination
             autoplay= {{delay: 5000}}>
-                {slides.map(slide => (
-                    <SwiperSlide>
+                {slides.map((slide, index) => (
+                    <SwiperSlide key={index}>
                         <img src={slide} alt="" />
                     </SwiperSlide>
                 ))}

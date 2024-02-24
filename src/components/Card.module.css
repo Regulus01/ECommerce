@@ -4,7 +4,15 @@
     max-height: 500px;
     background-color: white;
     border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.5s;
+}
+
+.container img {
+    max-width: 200px;
+    max-height: 150px;
+    width: 100%;
+    height: auto;
 }
 
 .container:hover {
@@ -18,10 +26,6 @@
     max-height: 500px;
 }
 
-.container img {
-    max-width: 200px;
-    max-height: 150px;
-    width: 100%;
-    height: auto;
-
+.infos h3 {
+    font-size: 15px;
 }

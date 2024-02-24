@@ -16,7 +16,7 @@ const ProductCarrosel = ({ produtos }) => {
                 navigation
                 pagination>
                 {produtos.map(produto => (
-                    <SwiperSlide >
+                    <SwiperSlide className={styles.swiperBase} key={produto.id}>
                         <div className={styles.swiperSlide}>
                             <Card product={produto} />
                         </div>

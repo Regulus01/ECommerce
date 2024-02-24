@@ -8,20 +8,43 @@ import pink from "../../assets/pink.png"
 import photo1 from "../../assets/photo1.png"
 import photo2 from "../../assets/photo2.png"
 import ProductCarrosel from "../../components/ProductCarrosel";
-
-class Produto {
-
-  constructor(image, name, price) {
-    this.image = image;
-    this.name = name;
-    this.price = price;
-    this.classificacao = 5
-  }
-}
+import { useFetch } from "../../hooks/useFetch";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-  const produto = new Produto("https://arquivosprojetomarketplace.s3.us-east-2.amazonaws.com/Produto/caixa-1.png", "Playstation 5", 2500);
-  const listaProd = [produto, produto, produto, produto, produto, produto, produto, produto]
+  const { GetRequest } = useFetch();
+  const [loadingGrid, setLoadingGrid] = useState(true);
+  const [novidadesList, SetNovidadesList] = useState(null);
+  const [maisVisualizadosList, SetMaisVisualizadosList] = useState(null);
+  const [maisVendidos, SetMaisVendidosList] = useState(null);
+  const [melhoresDescontosList, SetMelhoresDescontosList] = useState(null);
+
+  useEffect(() => {
+
+    const Grid = async () => {
+
+      //Novidades
+      var response = await GetRequest('produto/Grid?tipoDaListagemViewModel=1');
+      SetNovidadesList(response.data)
+
+      //MaisVisualizados
+      response = await GetRequest('produto/Grid?tipoDaListagemViewModel=2');
+      SetMaisVisualizadosList(response.data)
+
+      //MaisVendidos
+      response = await GetRequest('produto/Grid?tipoDaListagemViewModel=3');
+      SetMaisVendidosList(response.data)
+
+      //MelhoresDescontos
+      response = await GetRequest('produto/Grid?tipoDaListagemViewModel=4');
+      SetMelhoresDescontosList(response.data)
+
+      setLoadingGrid(false)
+    };
+
+    Grid();
+
+  }, []);
 
   const slides = [photo1, photo2, pink]
 
@@ -31,32 +54,44 @@ const Home = () => {
         <Carrosel slides={slides}></Carrosel>
       </div>
 
-      <h1>Ofertas do dia</h1>
+      <h1>Novidades</h1>
 
-      <div className={styles.divStyles}>
-        <ProductCarrosel produtos={listaProd}> </ProductCarrosel>
-      </div>
+      {loadingGrid ? (
+        <div>Carregando...</div>
+      ) : (
+        <div className={styles.divStyles}>
+          <ProductCarrosel produtos={novidadesList}> </ProductCarrosel>
+        </div>
+      )}
 
-      <h1> As melhores promoções </h1>
+      <h1> Os Melhores Descontos </h1>
 
-      <div className={styles.divStyles}>
-        <ProductCarrosel produtos={listaProd}> </ProductCarrosel>
-      </div>
+      {loadingGrid ? (
+        <div>Carregando...</div>
+      ) : (
+        <div className={styles.divStyles}>
+          <ProductCarrosel produtos={melhoresDescontosList}> </ProductCarrosel>
+        </div>
+      )}
 
-      <h1> Produtos mais visualizados </h1>
-      <div className={styles.divStyles}>
-        <ProductCarrosel produtos={listaProd}> </ProductCarrosel>
-      </div>
+      <h1> Mais visualizados </h1>
+      {loadingGrid ? (
+        <div>Carregando...</div>
+      ) : (
+        <div className={styles.divStyles}>
+          <ProductCarrosel produtos={maisVisualizadosList}> </ProductCarrosel>
+        </div>
+      )}
 
       <h1> Os mais vendidos </h1>
-      <div className={styles.divStyles}>
-        <ProductCarrosel produtos={listaProd}> </ProductCarrosel>
-      </div>
 
-      <h1> Melhores descontos </h1>
-      <div className={styles.divStyles}>
-        <ProductCarrosel produtos={listaProd}> </ProductCarrosel>
-      </div>
+      {loadingGrid ? (
+        <div>Carregando...</div>
+      ) : (
+        <div className={styles.divStyles}>
+          <ProductCarrosel produtos={maisVendidos}> </ProductCarrosel>
+        </div>
+      )}
 
     </div>
 
