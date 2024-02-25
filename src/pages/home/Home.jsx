@@ -22,7 +22,7 @@ const Home = () => {
   useEffect(() => {
 
     const Grid = async () => {
-
+      
       //Novidades
       var response = await GetRequest('produto/Grid?tipoDaListagemViewModel=1');
       SetNovidadesList(response.data)

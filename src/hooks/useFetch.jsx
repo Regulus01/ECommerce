@@ -11,13 +11,38 @@ export const useFetch = () => {
             const response = await fetch(urlBase + url)
             const json = await response.json();
             setLoading(false)
-            
+
             return json;
+
         } catch (error) {
             setError("Erro ao carregar os dados!")
+            setLoading(false)
         }
-
     };
 
-    return { error, loading, GetRequest };
+    const PostRequest = async (data, url) => {
+        try {
+    
+            const response = await fetch(urlBase + url, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+
+            var json = await response.json();
+
+            if (json.error.code === "BadRequest") {
+                console.log(json.error.message[0].value)
+                setError(json.error.message[0].value)
+            }
+
+        } catch (error) {
+            setError("Erro ao carregar os dados!")
+            setLoading(false)
+        }
+    }
+
+    return { error, loading, GetRequest, PostRequest };
 }

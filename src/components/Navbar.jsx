@@ -21,7 +21,7 @@ const Navbar = () => {
                 </div>
                 <ul className={styles.links_list}>
                     <li>
-                        <NavLink className={styles.NavLink} to="/"> Olá, Faça seu login </NavLink>
+                        <NavLink className={styles.NavLink} to="/login"> Olá, Faça seu login </NavLink>
                     </li>
                     <li>
                         <NavLink className={styles.NavLink} to="/"> <img className={styles.carrinho} src={carrinho} alt="carrinho" /> </NavLink>

@@ -5,6 +5,8 @@ import About from './pages/about/About'
 import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import NotFound from './pages/notFound/NotFound'
+import Login from './pages/login/Login'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/about" element={<About />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path='*' element={<NotFound/>}></Route>
           </Routes>
         </div>
         <Footer />

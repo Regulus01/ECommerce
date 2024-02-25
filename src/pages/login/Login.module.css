@@ -1,0 +1,57 @@
+.containerA {
+    display: grid;
+    place-items: center;
+
+}
+
+.containerB {
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    border-color: transparent;
+    border-bottom: 1px solid #CCC;
+    background-color: transparent;
+}
+
+.box:focus {
+    outline: none;
+}
+
+.btn {
+    background-color: #ffa500;
+    color: #FFF;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 120px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+}
+
+/* form styles */
+
+form {
+    max-width: 50%;
+    margin: 0 auto;
+    position: relative;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+label span {
+    margin-bottom: .3em;
+    font-weight: bold;
+    text-align: left;
+}
