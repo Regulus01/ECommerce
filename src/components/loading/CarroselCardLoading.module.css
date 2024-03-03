@@ -1,0 +1,11 @@
+.swiperContainer {
+    max-width: 1250px;
+    position: relative;
+}
+
+.swiperSlide {
+  padding-top: 10%;
+  padding-left: 5%;
+  padding-right: 10%;
+  height: 350px;
+}

@@ -10,6 +10,7 @@ import photo2 from "../../assets/photo2.png"
 import ProductCarrosel from "../../components/ProductCarrosel";
 import { useFetch } from "../../hooks/useFetch";
 import { useEffect, useState } from "react";
+import CardLoading from "../../components/loading/CarroselCardLoading";
 
 const Home = () => {
   const { GetRequest } = useFetch();
@@ -22,7 +23,7 @@ const Home = () => {
   useEffect(() => {
 
     const Grid = async () => {
-      
+
       //Novidades
       var response = await GetRequest('produto/Grid?tipoDaListagemViewModel=1');
       SetNovidadesList(response.data)
@@ -57,7 +58,9 @@ const Home = () => {
       <h1>Novidades</h1>
 
       {loadingGrid ? (
-        <div>Carregando...</div>
+        <div className={styles.divStyles}>
+          <CardLoading > </CardLoading>
+        </div>
       ) : (
         <div className={styles.divStyles}>
           <ProductCarrosel produtos={novidadesList}> </ProductCarrosel>
@@ -67,7 +70,9 @@ const Home = () => {
       <h1> Os Melhores Descontos </h1>
 
       {loadingGrid ? (
-        <div>Carregando...</div>
+        <div className={styles.divStyles}>
+          <CardLoading > </CardLoading>
+        </div>
       ) : (
         <div className={styles.divStyles}>
           <ProductCarrosel produtos={melhoresDescontosList}> </ProductCarrosel>
@@ -76,7 +81,9 @@ const Home = () => {
 
       <h1> Mais visualizados </h1>
       {loadingGrid ? (
-        <div>Carregando...</div>
+        <div className={styles.divStyles}>
+          <CardLoading > </CardLoading>
+        </div>
       ) : (
         <div className={styles.divStyles}>
           <ProductCarrosel produtos={maisVisualizadosList}> </ProductCarrosel>
@@ -86,7 +93,9 @@ const Home = () => {
       <h1> Os mais vendidos </h1>
 
       {loadingGrid ? (
-        <div>Carregando...</div>
+        <div className={styles.divStyles}>
+          <CardLoading > </CardLoading>
+        </div>
       ) : (
         <div className={styles.divStyles}>
           <ProductCarrosel produtos={maisVendidos}> </ProductCarrosel>
