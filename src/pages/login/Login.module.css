@@ -2,6 +2,7 @@
     display: grid;
     place-items: center;
 
+
 }
 
 .containerB {
@@ -36,6 +37,11 @@
     font-size: 1em;
 }
 
+.btn:disabled {
+    background-color: gray; /* Cor de fundo quando desabilitado */
+    cursor: not-allowed; /* Altera o cursor ao passar por cima */
+}
+
 /* form styles */
 
 form {
@@ -54,4 +60,14 @@ label span {
     margin-bottom: .3em;
     font-weight: bold;
     text-align: left;
+}
+
+.btnDiv {
+    display: flex; 
+    justify-content: center;
+}
+
+.error {
+    display: flex; 
+    justify-content: center;
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Login.module.css"
 import { useFetch } from "../../hooks/useFetch";
@@ -7,24 +7,32 @@ import { useAuth } from "../../context/AuthContext";
 const Login = () => {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
+    const [response, setResponse] = useState("");
     const { PostRequest, error, loading } = useFetch();
     const { login } = useAuth();
+    const [loadingAuth, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true)
 
         var body = {
-            email : name,
-            password : password
+            email: name,
+            password: password
         }
 
-        var response = await PostRequest(body, "authentication/login")
+        setResponse(await PostRequest(body, "authentication/login"))
 
-        if(!error)
-            login(response.data)
+        setLoading(false)
     }
 
-    console.log(error)
+    useEffect(() => {
+        if (!error) {
+            login(response.data)
+        }
+
+    }, [response]);
+
 
     return (
         <div className={styles.containerA}>
@@ -34,12 +42,14 @@ const Login = () => {
                 <form onSubmit={handleSubmit}>
                     <label>
                         <span>Nome</span>
-                        <input className={styles.box} type="text" name="name" onChange={(e) => setName(e.target.value)} />
+                        <input className={styles.box} type="text" name="name" required onChange={(e) => setName(e.target.value)} />
                         <span>Senha</span>
-                        <input className={styles.box} type="password" name="senha" onChange={(e) => setPassword(e.target.value)} />
+                        <input className={styles.box} type="password" name="senha" required onChange={(e) => setPassword(e.target.value)} />
                     </label>
-                    {error ?? <h4>teste</h4>}
-                    <button  className={styles.btn}>Login</button>
+                    {error && <div className={styles.error}> <h4 className="error"> {error} </h4> </div>}
+                    <div className={styles.btnDiv}>
+                        <button disabled={loadingAuth} className={styles.btn}>Login</button>
+                    </div>
                     <p>Não possui cadastro? <NavLink to="/">cadastre-se</NavLink></p>
                 </form>
             </div>

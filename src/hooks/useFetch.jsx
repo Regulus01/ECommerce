@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const useFetch = () => {
-    const [error, setError] = useState("");
+    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const urlBase = "https://localhost:7236/api/"
@@ -22,7 +22,8 @@ export const useFetch = () => {
 
     const PostRequest = async (data, url) => {
         try {
-    
+            setError(null)
+        
             const response = await fetch(urlBase + url, {
                 method: 'POST',
                 body: JSON.stringify(data),
@@ -38,7 +39,6 @@ export const useFetch = () => {
             }
 
             if (json.error.code === "BadRequest") {
-                console.log(json.error.message[0].value)
                 setError(json.error.message[0].value)
             }
             
@@ -48,5 +48,5 @@ export const useFetch = () => {
         }
     }
 
-    return { error, loading, GetRequest, PostRequest };
+    return { error, loading, GetRequest, PostRequest, };
 }

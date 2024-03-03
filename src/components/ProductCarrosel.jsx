@@ -25,7 +25,6 @@ const ProductCarrosel = ({ route }) => {
 
     }, []);
 
-    console.log(error)
 
     return (
         <>
