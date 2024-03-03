@@ -7,8 +7,8 @@ import { useAuth } from "../../context/AuthContext";
 const Login = () => {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
-    const { PostRequest } = useFetch();
-    const { user, login, logout } = useAuth();
+    const { PostRequest, error, loading } = useFetch();
+    const { login } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,8 +19,12 @@ const Login = () => {
         }
 
         var response = await PostRequest(body, "authentication/login")
-        login(response.data)
+
+        if(!error)
+            login(response.data)
     }
+
+    console.log(error)
 
     return (
         <div className={styles.containerA}>
@@ -34,7 +38,8 @@ const Login = () => {
                         <span>Senha</span>
                         <input className={styles.box} type="password" name="senha" onChange={(e) => setPassword(e.target.value)} />
                     </label>
-                    <button className={styles.btn}>Login</button>
+                    {error ?? <h4>teste</h4>}
+                    <button  className={styles.btn}>Login</button>
                     <p>Não possui cadastro? <NavLink to="/">cadastre-se</NavLink></p>
                 </form>
             </div>

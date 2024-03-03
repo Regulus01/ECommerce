@@ -7,8 +7,26 @@ import 'swiper/css/pagination'
 import styles from './ProductCarrosel.module.css'
 import Card from './Card'
 import { Link } from 'react-router-dom'
+import { useFetch } from '../hooks/useFetch'
+import { useEffect, useState } from 'react'
+import CarroselCardLoading from './loading/CarroselCardLoading'
 
-const ProductCarrosel = ({ produtos }) => {
+const ProductCarrosel = ({ route }) => {
+    const [produtos, SetProdutos] = useState(null);
+    const { GetRequest, error, loading } = useFetch();
+
+    useEffect(() => {
+        const Grid = async () => {
+            var response = await GetRequest(route);
+            SetProdutos(response.data)
+        };
+
+        Grid();
+
+    }, []);
+
+    console.log(error)
+
     return (
         <>
             <Swiper className={styles.swiperContainer}
@@ -16,16 +34,31 @@ const ProductCarrosel = ({ produtos }) => {
                 slidesPerView={5}
                 navigation
                 pagination>
-                {produtos.map(produto => (
-                    <SwiperSlide className={styles.swiperBase} key={produto.id}>
-                        <div className={styles.swiperSlide}>  
-                            <Link style={{textDecoration: 'none', color: 'black'}} to={`/product/${produto.id}`}>
-                                <Card product={produto} />
-                            </Link>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+
+                {loading && <div className={styles.divStyles}>
+                    <CarroselCardLoading />
+                </div>}
+
+                {(!loading && !error) && <div className={styles.divStyles}>
+                    {produtos.map(produto => (
+                        <SwiperSlide className={styles.swiperBase} key={produto.id}>
+                            <div className={styles.swiperSlide}>
+                                <Link style={{ textDecoration: 'none', color: 'black' }} to={`/product/${produto.id}`}>
+                                    <Card product={produto} />
+                                </Link>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </div>}
+
+                {error &&
+                    <div>
+                        <h1>
+                            Produtos não encontrados
+                        </h1>
+                    </div>}
+
+            </Swiper >
         </>
     );
 }
