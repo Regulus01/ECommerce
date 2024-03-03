@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import NotFound from './pages/notFound/NotFound'
 import Login from './pages/login/Login'
 import { useAuth } from './context/AuthContext'
+import Product from './pages/product/Product'
 
 function App() {
   const { user } = useAuth();
@@ -19,10 +20,11 @@ function App() {
           <Navbar />
           <div className='main-content'>
             <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/about" element={<About />}></Route>
-              <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/> }></Route>
-              <Route path='*' element={<NotFound />}></Route>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About /> }/>
+              <Route path="/product/:id" element={<Product />} />
+              <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/> } />
+              <Route path='*' element={<NotFound />} />
             </Routes>
           </div>
           <Footer />

@@ -59,7 +59,7 @@ const Home = () => {
 
       {loadingGrid ? (
         <div className={styles.divStyles}>
-          <CardLoading > </CardLoading>
+          <CardLoading />
         </div>
       ) : (
         <div className={styles.divStyles}>
@@ -71,7 +71,7 @@ const Home = () => {
 
       {loadingGrid ? (
         <div className={styles.divStyles}>
-          <CardLoading > </CardLoading>
+            <CardLoading />
         </div>
       ) : (
         <div className={styles.divStyles}>
@@ -82,7 +82,7 @@ const Home = () => {
       <h1> Mais visualizados </h1>
       {loadingGrid ? (
         <div className={styles.divStyles}>
-          <CardLoading > </CardLoading>
+            <CardLoading />
         </div>
       ) : (
         <div className={styles.divStyles}>
@@ -94,7 +94,7 @@ const Home = () => {
 
       {loadingGrid ? (
         <div className={styles.divStyles}>
-          <CardLoading > </CardLoading>
+            <CardLoading />
         </div>
       ) : (
         <div className={styles.divStyles}>

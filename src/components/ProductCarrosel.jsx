@@ -6,6 +6,7 @@ import 'swiper/css/pagination'
 
 import styles from './ProductCarrosel.module.css'
 import Card from './Card'
+import { Link } from 'react-router-dom'
 
 const ProductCarrosel = ({ produtos }) => {
     return (
@@ -17,8 +18,10 @@ const ProductCarrosel = ({ produtos }) => {
                 pagination>
                 {produtos.map(produto => (
                     <SwiperSlide className={styles.swiperBase} key={produto.id}>
-                        <div className={styles.swiperSlide}>
-                            <Card product={produto} />
+                        <div className={styles.swiperSlide}>  
+                            <Link style={{textDecoration: 'none', color: 'black'}} to={`/product/${produto.id}`}>
+                                <Card product={produto} />
+                            </Link>
                         </div>
                     </SwiperSlide>
                 ))}

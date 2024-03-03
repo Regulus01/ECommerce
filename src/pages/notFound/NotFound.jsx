@@ -9,7 +9,7 @@ const NotFound = () => {
   return (
     <div className={styles.div}>
         <h1>Ops, nada foi encontrado...</h1>
-        <img src={notFoundImg} alt="" />
+        <img src={notFoundImg} />
     </div>
   )
 }

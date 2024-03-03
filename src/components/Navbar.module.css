@@ -16,13 +16,7 @@
     background-color: #232f3e;
 }
 
-.departamentsButton {
-    background-color: transparent;
-    border: none;
-    cursor: pointer; 
-}
-
-.departamentsButton h4 {
+.Button {
     color: #ffffff;
 }
 

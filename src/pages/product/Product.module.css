@@ -1,0 +1,10 @@
+.ProductContainer {
+    border-radius: 5px;
+    height: 620px;
+    width: 1250px;
+    background-color: white;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

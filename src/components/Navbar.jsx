@@ -10,9 +10,7 @@ const Navbar = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("teste")
         await logout()
-        console.log(user)
     }
 
     return (
@@ -32,7 +30,7 @@ const Navbar = () => {
                 <ul className={styles.links_list}>
                     <li>
                         {!user && <NavLink className={styles.NavLink} to="/login"> Olá, Faça seu login </NavLink>}
-                        {user && <button onClick={handleSubmit}>Logout</button>}
+                        {user && <button className={styles.Button} onClick={handleSubmit}>Logout</button>}
                     </li>
                     <li>
                         {user && <NavLink className={styles.NavLink} to="/"> <img className={styles.carrinho} src={carrinho} alt="carrinho" /> </NavLink>}
@@ -40,7 +38,7 @@ const Navbar = () => {
                 </ul>
             </nav>
             <nav className={styles.navbarBaixa}>
-                <button className={styles.departamentsButton}>
+                <button className={styles.Button}>
                     <h4>Departamentos</h4>
                 </button>
                 <ul className={styles.links_list}>
