@@ -2,11 +2,13 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Login.module.css"
 import { useFetch } from "../../hooks/useFetch";
+import { useAuth } from "../../context/AuthContext";
 
 const Login = () => {
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const { PostRequest } = useFetch();
+    const { user, login, logout } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,7 +18,8 @@ const Login = () => {
             password : password
         }
 
-        await PostRequest(body, "authentication/login")
+        var response = await PostRequest(body, "authentication/login")
+        login(response.data)
     }
 
     return (

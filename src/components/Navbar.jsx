@@ -3,8 +3,18 @@ import styles from './Navbar.module.css'
 import { FaSearch } from 'react-icons/fa';
 import logo from '../assets/logo.png'
 import carrinho from '../assets/carrinho.png'
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
+    const { user, logout } = useAuth();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log("teste")
+        await logout()
+        console.log(user)
+    }
+
     return (
         <div>
             <nav className={styles.navbar}>
@@ -21,10 +31,11 @@ const Navbar = () => {
                 </div>
                 <ul className={styles.links_list}>
                     <li>
-                        <NavLink className={styles.NavLink} to="/login"> Olá, Faça seu login </NavLink>
+                        {!user && <NavLink className={styles.NavLink} to="/login"> Olá, Faça seu login </NavLink>}
+                        {user && <button onClick={handleSubmit}>Logout</button>}
                     </li>
                     <li>
-                        <NavLink className={styles.NavLink} to="/"> <img className={styles.carrinho} src={carrinho} alt="carrinho" /> </NavLink>
+                        {user && <NavLink className={styles.NavLink} to="/"> <img className={styles.carrinho} src={carrinho} alt="carrinho" /> </NavLink>}
                     </li>
                 </ul>
             </nav>
