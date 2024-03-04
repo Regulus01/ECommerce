@@ -5,7 +5,7 @@ export const useFetch = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const urlBase = import.meta.env.PROD ? VITE_APP_PROD_API_BASE_URL : import.meta.env.VITE_APP_DEV_API_BASE_URL
+    const urlBase = import.meta.env.PROD ? import.meta.env.VITE_APP_PROD_API_BASE_URL : import.meta.env.VITE_APP_DEV_API_BASE_URL
 
     const GetRequest = async (url) => {
         try {
