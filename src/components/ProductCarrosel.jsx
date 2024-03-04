@@ -38,7 +38,7 @@ const ProductCarrosel = ({ route }) => {
                     <CarroselCardLoading />
                 </div>}
 
-                {(!loading && !error) && <div className={styles.divStyles}>
+                {(!loading && !error && produtos.length != 0) && <div className={styles.divStyles}>
                     {produtos.map(produto => (
                         <SwiperSlide className={styles.swiperBase} key={produto.id}>
                             <div className={styles.swiperSlide}>
@@ -50,7 +50,7 @@ const ProductCarrosel = ({ route }) => {
                     ))}
                 </div>}
 
-                {error &&
+                {(error || produtos == null || produtos.length == 0) &&
                     <div>
                         <h1>
                             Produtos não encontrados
