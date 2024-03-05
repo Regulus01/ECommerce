@@ -17,13 +17,10 @@ export function AuthProvider({children}){
             setUser(userTokens);
             localStorage.setItem('user', JSON.stringify(userTokens));
         }
-        else {
-            setUser(null);
-            localStorage.removeItem('user');
-        }
     }
 
     const logout = () => {
+        console.log("lgout")
         setUser(null)
         localStorage.removeItem('user');
     }
