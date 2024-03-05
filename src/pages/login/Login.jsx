@@ -22,16 +22,15 @@ const Login = () => {
         }
 
         setResponse(await PostRequest(body, "authentication/login"))
-
         setLoading(false)
     }
 
     useEffect(() => {
-        if (!error) {
+        if (response && !error) {
             login(response.data)
         }
 
-    }, [response]);
+    }, [response, error]);
 
 
     return (
