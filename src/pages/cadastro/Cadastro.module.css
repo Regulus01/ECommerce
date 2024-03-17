@@ -35,12 +35,11 @@
     font-size: 1em;
 }
 
+
 .btn:disabled {
     background-color: gray; /* Cor de fundo quando desabilitado */
     cursor: not-allowed; /* Altera o cursor ao passar por cima */
 }
-
-/* form styles */
 
 form {
     max-width: 50%;

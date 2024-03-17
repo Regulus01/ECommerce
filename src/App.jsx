@@ -9,6 +9,7 @@ import NotFound from './pages/notFound/NotFound'
 import Login from './pages/login/Login'
 import { useAuth } from './context/AuthContext'
 import Product from './pages/product/Product'
+import Cadastro from './pages/cadastro/Cadastro'
 
 function App() {
   const { user } = useAuth();
@@ -24,6 +25,7 @@ function App() {
               <Route path="/about" element={<About /> }/>
               <Route path="/product/:id" element={<Product />} />
               <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/> } />
+              <Route path="/cadastro" element={!user ? <Cadastro /> : <Navigate to="/"/> } />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </div>

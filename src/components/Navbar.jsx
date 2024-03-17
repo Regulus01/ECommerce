@@ -29,12 +29,14 @@ const Navbar = () => {
                 </div>
                 <ul className={styles.links_list}>
                     <li>
-                        {!user && <NavLink className={styles.NavLink} to="/login"> Olá, Faça seu login </NavLink>}
-                        {user && <button className={styles.Button} onClick={handleSubmit}>Logout</button>}
-                    </li>
-                    <li>
+                        {user && <NavLink className={styles.NavLink} to="/"> Olá josé </NavLink>}
                         {user && <NavLink className={styles.NavLink} to="/"> <img className={styles.carrinho} src={carrinho} alt="carrinho" /> </NavLink>}
                     </li>
+                    <li>
+                        {!user && <NavLink className={styles.NavLink} to="/login"> Olá, Faça seu login </NavLink>}
+                        {user && <NavLink className={styles.NavLink} onClick={handleSubmit}>Logout</NavLink>}
+                    </li>
+
                 </ul>
             </nav>
             <nav className={styles.navbarBaixa}>

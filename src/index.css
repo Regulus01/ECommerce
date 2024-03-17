@@ -19,3 +19,7 @@ button {
 .error {
   color: red;
 }
+
+input {
+  filter: regex("/[^0-9a-zA-Z\-]/g");
+}
